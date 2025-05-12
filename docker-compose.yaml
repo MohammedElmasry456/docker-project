@@ -1,6 +1,5 @@
 services:
   back:
-    container_name: express-app
     build:
       context: ./Backend
       args:
@@ -67,11 +66,11 @@ services:
       - "80:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 express-app
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   command: --interval 30 --label-enable
 networks:
   backend-net:
 volumes:
