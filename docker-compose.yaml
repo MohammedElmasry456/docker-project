@@ -2,6 +2,9 @@ services:
   back:
     build:
       context: ./Backend
+      args:
+        - PORT=4000
+      target: prod
     image: moelmasry456/webserver
     depends_on:
       - mongo
@@ -9,6 +12,8 @@ services:
     command: ["npm", "run", "dev"]
     networks:
       - backend-net
+    volumes:
+      - ./Backend:/code
   mongo:
     image: mongo:latest
     restart: always
