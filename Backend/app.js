@@ -72,7 +72,7 @@ app.get("/get", async (req, res) => {
 });
 app.get("/", async (req, res) => {
   console.log(`from host ${os.hostname}`);
-  res.status(200).send({ message: "jj world" });
+  res.status(200).send({ message: "hello world" });
 });
 
 app.post(
